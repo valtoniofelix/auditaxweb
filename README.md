@@ -8,12 +8,24 @@ A simple Streamlit app template for you to modify!
 
 1. Install the requirements
 
-   ```
-   $ pip install -r requirements.txt
-   ```
-
+requirements.txt
+streamlit
+supabase
 2. Run the app
 
    ```
-   $ streamlit run streamlit_app.py
+   $ streamlit import streamlit as st
+from supabase import create_client
+
+st.set_page_config(page_title="Auditax 360", layout="wide")
+
+st.title("📊 Auditax 360")
+st.caption("Auditoria fiscal automatizada")
+
+url = st.secrets["SUPABASE_URL"]
+key = st.secrets["SUPABASE_ANON_KEY"]
+
+supabase = create_client(url, key)
+
+st.success("✅ Conectado ao Supabase com sucesso!")run streamlit_app.py
    ```
